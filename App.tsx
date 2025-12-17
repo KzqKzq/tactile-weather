@@ -212,7 +212,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="py-8 text-center text-gray-400 text-sm">
-         <p>© 2024 Smartisan Weather Kit. Design inspired by Smartisan OS.</p>
+         <p>© 2024 tactile-weather Component Library. Design inspired by Smartisan OS.</p>
       </footer>
     </div>
   );
