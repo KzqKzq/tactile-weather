@@ -1,22 +1,25 @@
+
 import React from 'react';
 import { WeatherData } from '../types';
 import { WeatherIcon } from './WeatherIcon';
+import { translations, Language } from '../constants/translations';
 
 interface ForecastStripProps {
   data: WeatherData | null;
   unit: 'C' | 'F';
+  lang: Language;
 }
 
-export const ForecastStrip: React.FC<ForecastStripProps> = ({ data, unit }) => {
+export const ForecastStrip: React.FC<ForecastStripProps> = ({ data, unit, lang }) => {
   if (!data) return null;
 
   const { daily } = data;
+  const t = translations[lang];
 
   const getDayName = (dateStr: string, index: number) => {
-    if (index === 0) return '今天';
+    if (index === 0) return t.today;
     const date = new Date(dateStr);
-    const dayMap = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-    return dayMap[date.getDay()];
+    return t.weekDays[date.getDay()];
   };
 
   const convert = (temp: number) => unit === 'C' ? Math.round(temp) : Math.round(temp * 9/5 + 32);
@@ -29,8 +32,8 @@ export const ForecastStrip: React.FC<ForecastStripProps> = ({ data, unit }) => {
   }));
 
   return (
-    // Matches MainCard shadow style with reduced border radius
-    <div className="w-full bg-[#fbfbfb] rounded-[14px] 
+    // Matches MainCard shadow style with reduced border radius (now 6px)
+    <div className="w-full bg-[#fbfbfb] rounded-[6px] 
       shadow-[0_15px_30px_rgba(0,0,0,0.1),inset_0_3px_6px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.08),0_1px_0_rgba(255,255,255,1)]
       border border-black/[0.03] p-6 mt-6">
        <div className="flex justify-between items-center px-2">

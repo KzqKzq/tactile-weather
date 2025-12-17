@@ -20,6 +20,41 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
+      /* Cartoon Weather Animations */
+      @keyframes cartoon-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes cartoon-spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes cartoon-rain {
+        0% { transform: translateY(-5px); opacity: 0; }
+        30% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(15px); opacity: 0; }
+      }
+      @keyframes cartoon-snow {
+        0% { transform: translateY(-5px) rotate(0deg); opacity: 0; }
+        30% { opacity: 1; }
+        100% { transform: translateY(15px) rotate(180deg); opacity: 0; }
+      }
+      @keyframes cartoon-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      .animate-cartoon-float { animation: cartoon-float 4s ease-in-out infinite; }
+      .animate-cartoon-spin { animation: cartoon-spin-slow 12s linear infinite; }
+      .animate-cartoon-rain-1 { animation: cartoon-rain 1.2s linear infinite; }
+      .animate-cartoon-rain-2 { animation: cartoon-rain 1.2s linear infinite 0.4s; }
+      .animate-cartoon-rain-3 { animation: cartoon-rain 1.2s linear infinite 0.8s; }
+      .animate-cartoon-snow-1 { animation: cartoon-snow 3s linear infinite; }
+      .animate-cartoon-snow-2 { animation: cartoon-snow 3s linear infinite 1s; }
+      .animate-cartoon-snow-3 { animation: cartoon-snow 3s linear infinite 2s; }
+      .animate-cartoon-pulse { animation: cartoon-pulse 3s ease-in-out infinite; }
     </style>
   <script type="importmap">
 {

@@ -1,3 +1,4 @@
+
 export interface DailyForecast {
   time: string[];
   weather_code: number[];
@@ -31,4 +32,19 @@ export interface Location {
   name: string;
   lat: number;
   lon: number;
+  country?: string;
+  admin1?: string;
+}
+
+export interface GeocodingResult {
+  id: number;
+  name: string;
+  latitude: number;
+  longitude: number;
+  country?: string;
+  admin1?: string;
+}
+
+export interface GeocodingResponse {
+  results?: GeocodingResult[];
 }
