@@ -43,30 +43,75 @@ A high-fidelity recreation of the Smartisan OS (锤子科技) Weather app aesthe
     # or
     yarn install
     ```
-3.  **Run the development server**:
+3.  **Start the development server**:
     ```bash
     npm start
     ```
 
 ## 📦 Usage
 
-The core component is `<WeatherWidget />`.
+### Installation
+
+```bash
+npm install tactile-weather
+```
+
+### Prerequisites
+
+This library uses **Tailwind CSS** for styling. Ensure your project has Tailwind CSS configured.
+
+### Basic Example
 
 ```tsx
-import { WeatherWidget } from './components/WeatherWidget';
+import { WeatherWidget } from 'tactile-weather';
 
 // ... inside your component
 <WeatherWidget 
-  size="large" // 'large' | 'medium' | 'small' | 'mini' | ...
-  data={weatherData} // WeatherData object
-  loading={isLoading} 
-  unit="C" // 'C' | 'F'
+  size="large" 
+  data={weatherData} 
+  loading={false} 
+  unit="C" 
   locationName="Beijing"
-  lang="en" // 'zh' | 'en'
+  lang="en"
   onToggleUnit={() => {}}
   onRefresh={() => {}}
-  onLocationSelect={(loc) => {}}
 />
+```
+
+### Component API
+
+#### `<WeatherWidget />`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `'large' \| 'medium' \| 'small' \| 'mini' \| 'wide-small' \| 'wide-medium' \| 'micro'` | Required | Controls the layout and dimensions of the widget. |
+| `data` | `WeatherData \| null` | Required | The weather data object. |
+| `loading` | `boolean` | `false` | Shows a loading skeleton when true. |
+| `unit` | `'C' \| 'F'` | `'C'` | Temperature unit. |
+| `locationName` | `string` | Required | Name of the city to display. |
+| `lang` | `'zh' \| 'en'` | `'zh'` | Language for UI elements. |
+| `onToggleUnit` | `() => void` | Required | Callback when unit switch is toggled. |
+| `onRefresh` | `() => void` | Required | Callback when refresh button is clicked. |
+| `onLocationSelect` | `(loc: Location) => void` | Optional | Callback when a new location is selected from search. |
+
+#### Data Structure (`WeatherData`)
+
+```typescript
+interface WeatherData {
+  current: {
+    temp: number;
+    weatherCode: number;
+    humidity: number;
+    windSpeed: number;
+    aqi: number; // 0-500
+  };
+  forecast: Array<{
+    date: string; // YYYY-MM-DD
+    maxTemp: number;
+    minTemp: number;
+    weatherCode: number;
+  }>;
+}
 ```
 
 ## 🌍 Internationalization

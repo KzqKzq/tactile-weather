@@ -50,23 +50,68 @@
 
 ## 📦 使用方法
 
-核心组件是 `<WeatherWidget />`。
+### 安装
+
+```bash
+npm install tactile-weather
+```
+
+### 前置要求
+
+本组件库使用 **Tailwind CSS** 进行样式管理。请确保您的项目已配置 Tailwind CSS。
+
+### 基础示例
 
 ```tsx
-import { WeatherWidget } from 'tactile-weather'; // 或者本地路径
+import { WeatherWidget } from 'tactile-weather';
 
 // ... 在你的组件中
 <WeatherWidget 
-  size="large" // 'large' | 'medium' | 'small' | 'mini' | ...
-  data={weatherData} // WeatherData object
-  loading={isLoading} 
-  unit="C" // 'C' | 'F'
-  locationName="Beijing"
-  lang="zh" // 'zh' | 'en'
+  size="large" 
+  data={weatherData} 
+  loading={false} 
+  unit="C" 
+  locationName="北京"
+  lang="zh"
   onToggleUnit={() => {}}
   onRefresh={() => {}}
-  onLocationSelect={(loc) => {}}
 />
+```
+
+### 组件 API
+
+#### `<WeatherWidget />`
+
+| 属性 (Prop) | 类型 (Type) | 默认值 | 描述 |
+|-------------|-------------|--------|------|
+| `size` | `'large' \| 'medium' \| 'small' \| 'mini' \| 'wide-small' \| 'wide-medium' \| 'micro'` | 必填 | 控制组件的布局和尺寸。 |
+| `data` | `WeatherData \| null` | 必填 | 天气数据对象。 |
+| `loading` | `boolean` | `false` | 为 true 时显示加载骨架屏。 |
+| `unit` | `'C' \| 'F'` | `'C'` | 温度单位。 |
+| `locationName` | `string` | 必填 | 显示的城市名称。 |
+| `lang` | `'zh' \| 'en'` | `'zh'` | UI 界面语言。 |
+| `onToggleUnit` | `() => void` | 必填 | 点击单位切换开关时的回调。 |
+| `onRefresh` | `() => void` | 必填 | 点击刷新按钮时的回调。 |
+| `onLocationSelect` | `(loc: Location) => void` | 可选 | 从搜索中选择新地点时的回调。 |
+
+#### 数据结构 (`WeatherData`)
+
+```typescript
+interface WeatherData {
+  current: {
+    temp: number;       // 温度
+    weatherCode: number; // 天气代码 (OpenMeteo)
+    humidity: number;   // 湿度 %
+    windSpeed: number;  // 风速 km/h
+    aqi: number;        // 空气质量指数 0-500
+  };
+  forecast: Array<{
+    date: string;       // YYYY-MM-DD
+    maxTemp: number;
+    minTemp: number;
+    weatherCode: number;
+  }>;
+}
 ```
 
 ## 🌍 国际化
