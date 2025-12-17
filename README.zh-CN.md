@@ -45,7 +45,7 @@
     ```
 3.  **启动开发服务器**:
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## 📦 使用方法
@@ -60,9 +60,16 @@ npm install tactile-weather
 
 本组件库使用 **Tailwind CSS** 进行样式管理。请确保您的项目已配置 Tailwind CSS。
 
+同时需要引入组件库的 CSS 变量文件：
+
+```ts
+import 'tactile-weather/dist/tactile-weather.css';
+```
+
 ### 基础示例
 
 ```tsx
+import 'tactile-weather/dist/tactile-weather.css';
 import { WeatherWidget } from 'tactile-weather';
 
 // ... 在你的组件中
@@ -76,6 +83,24 @@ import { WeatherWidget } from 'tactile-weather';
   onToggleUnit={() => {}}
   onRefresh={() => {}}
 />
+```
+
+### 主题（包含暗夜主题）
+
+暗夜模式作为一个主题预设存在（不再需要单独的日夜开关）。使用 `ThemeProvider` 设置 `light/dark`，并可通过 `customTheme` 覆盖 CSS 变量：
+
+```tsx
+import 'tactile-weather/dist/tactile-weather.css';
+import { ThemeProvider, WeatherWidget } from 'tactile-weather';
+
+const customTheme = {
+  '--twx-bg-app': '#0f172a',
+  '--twx-text-primary': '#f8fafc',
+};
+
+<ThemeProvider initialTheme="dark" customTheme={customTheme}>
+  <WeatherWidget {...props} />
+</ThemeProvider>;
 ```
 
 ### 组件 API

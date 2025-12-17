@@ -45,7 +45,7 @@ A high-fidelity recreation of the Smartisan OS (锤子科技) Weather app aesthe
     ```
 3.  **Start the development server**:
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## 📦 Usage
@@ -60,9 +60,16 @@ npm install tactile-weather
 
 This library uses **Tailwind CSS** for styling. Ensure your project has Tailwind CSS configured.
 
+You also need to include the library CSS variables file:
+
+```ts
+import 'tactile-weather/dist/tactile-weather.css';
+```
+
 ### Basic Example
 
 ```tsx
+import 'tactile-weather/dist/tactile-weather.css';
 import { WeatherWidget } from 'tactile-weather';
 
 // ... inside your component
@@ -76,6 +83,24 @@ import { WeatherWidget } from 'tactile-weather';
   onToggleUnit={() => {}}
   onRefresh={() => {}}
 />
+```
+
+### Theming (Light/Dark + Custom Presets)
+
+Dark mode is just another theme. Use `ThemeProvider` to set the mode and/or override theme variables:
+
+```tsx
+import 'tactile-weather/dist/tactile-weather.css';
+import { ThemeProvider, WeatherWidget } from 'tactile-weather';
+
+const customTheme = {
+  '--twx-bg-app': '#0f172a',
+  '--twx-text-primary': '#f8fafc',
+};
+
+<ThemeProvider initialTheme="dark" customTheme={customTheme}>
+  <WeatherWidget {...props} />
+</ThemeProvider>;
 ```
 
 ### Component API
