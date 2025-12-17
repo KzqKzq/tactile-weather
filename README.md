@@ -4,7 +4,8 @@
 
 A high-fidelity recreation of the Smartisan OS (锤子科技) Weather app aesthetics, built as a modern React component library. This project features a skeuomorphic yet clean design style ("Nu-Skeuomorphism"), paying homage to the detail-obsessed design language of Smartisan.
 
-![Preview](./preview.png)
+![Preview](./asset/preview1.png)
+![Preview](./asset/preview2.png)
 
 ## ✨ Features
 

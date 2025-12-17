@@ -4,7 +4,8 @@
 
 高度复刻 Smartisan OS (锤子科技) 天气应用的精美设计，构建为现代化的 React 组件库。本项目采用拟物化与简洁设计相结合的风格 ("新拟物化")，致敬锤子科技对细节的极致追求。
 
-![Preview](./preview.png)
+![Preview](./asset/preview1.png)
+![Preview](./asset/preview2.png)
 
 ## ✨ 特性
 
