@@ -1,0 +1,99 @@
+/* --- LIGHT THEME (Default) --- */
+:root {
+  /* Backgrounds */
+  --twx-bg-widget: #fefefe;
+  --twx-bg-app: #f2f2f2;
+  --twx-bg-panel: #fdfdfd;
+  --twx-bg-input: #f0f0f0;
+  --twx-bg-button: #fafafa;
+  --twx-bg-button-hover: #ededed;
+  --twx-bg-switch: #e0e0e0;
+  --twx-bg-switch-knob: #fefefe;
+  --twx-bg-item-hover: #efefef;
+
+  /* Text */
+  --twx-text-primary: #333333;
+  --twx-text-emphasis: #2a2a2a;
+  --twx-text-secondary: #555555;
+  --twx-text-tertiary: #666666;
+  --twx-text-muted: #999999;
+  --twx-text-light: #ffffff;
+  --twx-text-icon: #444444;
+  --twx-text-placeholder: #a0a0a0;
+
+  /* Accents */
+  --twx-accent-success: #8cc63f;
+
+  /* Borders & Dividers */
+  --twx-border-light: rgba(0, 0, 0, 0.05); /* black/5 */
+  --twx-divider: #d1d5db; /* gray-300 */
+
+  /* Shadows - The Tactile Feel */
+  --twx-shadow-heavy: rgba(50, 50, 93, 0.25);
+  --twx-shadow-medium: rgba(0, 0, 0, 0.3);
+  --twx-shadow-subtle: rgba(0, 0, 0, 0.1);
+  --twx-highlight: rgba(255, 255, 255, 0.5);
+  --twx-highlight-strong: rgba(255, 255, 255, 1);
+  --twx-text-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+  --twx-shadow-inner: rgba(0, 0, 0, 0.06);
+
+  color: var(--twx-text-primary);
+  background-color: var(--twx-bg-app);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--twx-text-primary);
+  background-color: var(--twx-bg-app);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- DARK THEME --- */
+:root[data-theme="dark"],
+body[data-theme="dark"] {
+
+  /* Backgrounds */
+  --twx-bg-widget: #262626;
+  --twx-bg-app: #121212;
+  --twx-bg-panel: #202020;
+  --twx-bg-input: #1a1a1a;
+  --twx-bg-button: #333333;
+  --twx-bg-button-hover: #404040;
+  --twx-bg-switch: #444444;
+  --twx-bg-switch-knob: #2a2a2a;
+  --twx-bg-item-hover: #333333;
+
+  /* Text */
+  --twx-text-primary: #e5e5e5;
+  --twx-text-emphasis: #ffffff;
+  --twx-text-secondary: #a3a3a3;
+  --twx-text-tertiary: #888888;
+  --twx-text-muted: #666666;
+  --twx-text-light: #e5e5e5; /* In dark mode, 'light' might be same as primary or distinct */
+  --twx-text-icon: #d4d4d4;
+  --twx-text-placeholder: #555555;
+
+  /* Accents */
+  --twx-accent-success: #6c9e30; /* Slightly dimmed for dark mode */
+
+  /* Borders & Dividers */
+  --twx-border-light: rgba(255, 255, 255, 0.1);
+  --twx-divider: #404040;
+
+  /* Shadows - Adjusted for Dark Mode */
+  /* Shadows on dark need to be black but maybe more spread or just blacker */
+  --twx-shadow-heavy: rgba(0, 0, 0, 0.6);
+  --twx-shadow-medium: rgba(0, 0, 0, 0.8);
+  --twx-shadow-subtle: rgba(0, 0, 0, 0.4);
+  /* Highlights in dark mode are usually top-edge lighting or just absent */
+  --twx-highlight: rgba(255, 255, 255, 0.05);
+  --twx-highlight-strong: rgba(255, 255, 255, 0.08);
+  /* Engraved text shadow: In dark mode, usually a dark drop shadow works better than a white highlight */
+  --twx-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  /* Inner shadows */
+  --twx-shadow-inner: rgba(0, 0, 0, 0.4);
+}

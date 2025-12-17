@@ -30,7 +30,7 @@ export const WeatherWidget: React.FC<WeatherWidgetProps> = ({
   lang,
 }) => {
   // Styles based on size
-  let containerClasses = "bg-[#fefefe] shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3),inset_0_2px_0_rgba(255,255,255,0.5)] relative overflow-hidden flex flex-col items-center";
+  let containerClasses = "bg-[var(--twx-bg-widget)] shadow-[0_50px_100px_-20px_var(--twx-shadow-heavy),0_30px_60px_-30px_var(--twx-shadow-medium),inset_0_2px_0_var(--twx-highlight)] relative overflow-hidden flex flex-col items-center";
   
   // Padding logic
   if (size === 'large') {
